@@ -6,7 +6,7 @@ Currently, **library is BETA version** and testing only on Python version 3.8.
 
 Library not implement each of method from BaseLinker API [Documentation](https://api.baselinker.com/) yet.
 
-## Usage
+## Install
 
 ```shell script
 pip install py-baselinker
