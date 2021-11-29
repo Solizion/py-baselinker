@@ -7,7 +7,6 @@ class Entity:
 
     def __init__(self, data: dict):
         self.data_ = data
-        pass
 
     def json(self) -> str:
         return json.dumps(self.data_)

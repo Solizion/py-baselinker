@@ -12,6 +12,14 @@ Library not implement each of method from BaseLinker API [Documentation](https:/
 pip install py-baselinker
 ```
 
+## Usage example
+### last weeks orders:
+```python
+from baselinker import BaseLinker
+
+
+```
+
 ## Versioning 
 
 Versioning is base on [semver](https://semver.org/). 
