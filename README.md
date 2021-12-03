@@ -16,6 +16,13 @@ pip install py-baselinker
 ### last weeks orders:
 ```python
 from baselinker import BaseLinker
+from datetime import datetime
+
+bl = BaseLinker("https://api.baselinker.com/connector.php",'token')
+date_from = datetime.strptime('2021-11-01', '%Y-%m-%d').timestamp()
+bl.get_orders(date_from=date_from)
+order_sources_list = bl.request('getOrderSources').json()['sources']
+order_statuses_list = bl.request('getOrderStatusList').json()['statuses']
 
 
 ```
