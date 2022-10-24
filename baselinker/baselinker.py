@@ -52,10 +52,21 @@ class BaseLinker:
         Returns:
             orders (Order[]): List of order object
         """
-
+        page = 1
+        print('Page: ', page)
         parser = ResponseParser[Order]
+        req = parser.list(Order, 'orders', self.request('getOrders', **kwargs))
+        last_req_len = len(req)
 
-        return parser.list(Order, 'orders', self.request('getOrders', **kwargs))
+        while last_req_len == 100:
+            page += 1
+            print('Page: ', page)
+            kwargs['date_from'] = max([x.date_add for x in req]) + 1
+            n_req = parser.list(Order, 'orders', self.request('getOrders', **kwargs))
+            last_req_len = len(n_req)
+            req += n_req
+
+        return req
 
     def request(self, method: str, **kwargs) -> Response:
         """Send request to baselinker"""
